@@ -1,0 +1,53 @@
+Kafka Topics: Create the necessary Kafka topics where you will publish and 
+subscribe to data. 
+ Example topics could include tweets_topic for 
+user_data_topic for user-related data. 
+Resources: 
+setting up Kafka  
+ Kafka Producers: 
+Write a Producer script that connects to Kafka and sends data  to 
+the topics you created. 
+ Kafka Consumers: 
+Write a Consumer script that reads data from Kafka topics and processes it (e.g., save to 
+a database, ). 
+
+3. Processing Data with Spark Streaming 
+ Set up Apache Spark Streaming: 
+Use Apache Spark to consume data from Kafka in real-time. Spark can help you process 
+data in micro-batches. 
+Steps: 
+
+o Use Spark Streaming to consume data from Kafka. from Kafka.
+use logistic regression to detect fraud cases on the csv file(note that it is imbalabced). Also, take care that live streamin of data is done
+
+/usr/local/kafka
+
+python3 fraud_detection.py
+python3 create_topics.py
+python3 transaction_producer.py
+
+/opt/spark/sbin/start-all.sh
+
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic transaction_data_topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic fraud_alerts_topic
+sudo -u postgres python3 to_sql.py
+do -u postgres psql
+su
+
+
+sudo apt update
+sudo apt install -y postgresql postgresql-contrib
+
+# Switch to postgres user
+sudo -i -u postgres
+
+# Open the psql shell
+psql
+
+# In the psql shell, run (customize as needed):
+CREATE USER myuser WITH PASSWORD 'mypassword';
+CREATE DATABASE mydb;
+GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+\q
+
+exit  # back to your regular user

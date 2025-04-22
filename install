@@ -1,0 +1,16 @@
+sudo apt update
+sudo apt install -y postgresql postgresql-contrib
+
+# Switch to postgres user
+sudo -i -u postgres
+
+# Open the psql shell
+psql
+
+# In the psql shell, run (customize as needed):
+CREATE USER myuser WITH PASSWORD 'mypassword';
+CREATE DATABASE mydb;
+GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+\q
+
+exit  # back to your regular user
